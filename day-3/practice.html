@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Dhanush</p>
+    <ul>
+      <li class="item">Book</li>
+      <li class="item">Pen</li>
+      <li class="item">Pad</li>
+      <li class="item">Mouse</li>
+    </ul>
+    <h1 id="Header">This is Header</h1>
+    <button id="btn">Click Me..!</button>
+    <form>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" />
+      <label for="mail">Email: </label>
+      <input type="email" id="mail" name="mail" required />
+      <button id="submit" onclick="display()">Submit</button>
+    </form>
+    <script>
+      // Select the first <p> element in a document and change its text to "Hello, world!".
+      let p = document.getElementsByTagName("p")[0];
+      p.innerText = "Hello, world!";
+      // Array.from(p).forEach((element) => {
+      //   element.innerText = "Helo World!";
+      // });
+
+      // Select all elements with the class name "item" and log their text content.
+      let items = document.getElementsByClassName("item");
+      Array.from(items).forEach((ele) => console.log(ele.innerText));
+
+      // Create a new <div> element with the text "New Div" and append it to the body.
+      //   let newDiv = document.createElement("div");
+      //   newDiv.innerHTML = "My New Div";
+      //   document.body.appendChild(newDiv);
+      // Change the background color of the element with ID "header" to "lightblue".
+      let head = document.getElementById("Header");
+      head.style.backgroundColor = "lightblue";
+      // Add a click event listener to a button that changes its text to "Clicked!".
+      let button = document.getElementById("btn");
+      button.addEventListener("click", () => {
+        button.innerText = "Clicked!";
+      });
+      // Add a mouseover event listener to a paragraph that changes its font size to "20px".
+      p.addEventListener("mouseover", () => {
+        p.style.fontSize = "20px";
+      });
+      // Handle form submission to log the values of all input fields in the form.
+      // Add a validation check to ensure a text input is not empty before allowing form submission.
+
+      function display() {
+        event.preventDefault();
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("mail").value;
+        console.log(name);
+        console.log(email);
+        if (name == "") {
+          window.alert("Please enter name");
+        }
+      }
+    </script>
+  </body>
+</html>

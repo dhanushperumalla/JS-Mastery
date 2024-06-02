@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .head {
+        text-align: center;
+        margin: 10px;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .product {
+        border: 1px solid black;
+        border-radius: 7px;
+        padding: 10px;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        gap: 5px;
+      }
+      .img {
+        width: 200px;
+        height: 200px;
+        border-radius: 5px;
+      }
+      .img-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="head">Simple Ecommerce</h1>
+    <div class="container" id="container"></div>
+    <script>
+      async function fetchData() {
+        fetch("https://dummyjson.com/products")
+          .then((data) => data.json())
+          .then((data) => {
+            const products = data.products;
+            const productContainer = document.getElementById("container");
+
+            products.forEach((product) => {
+              const productCard = `
+            <div class="product">
+                <div class="img-wrap">
+                    <img src="${product.thumbnail}" alt="" class="img" />
+                </div>
+                <h3 class="title">${product.title}</h3>
+                <h4 class="price">Price: ${Math.floor(product.price * 20)}₹</h4>
+                <p class="desc">
+                ${product.description}
+                </p>
+            </div>
+            `;
+              productContainer.innerHTML += productCard;
+            });
+          });
+      }
+      fetchData();
+    </script>
+  </body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .head {
+        text-align: center;
+        margin: 10px;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .product {
+        border: 1px solid black;
+        border-radius: 7px;
+        padding: 10px;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .img {
+        width: 200px;
+        height: 200px;
+        border-radius: 5px;
+      }
+      .img-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="head">Simple Ecommerce</h1>
+    <div class="container" id="container"></div>
+    <script>
+      // Function to fetch data from the API
+      async function fetchData() {
+        fetch("https://dummyjson.com/products")
+          .then((data) => data.json()) // Parse the JSON response
+          .then((data) => {
+            const products = data.products; // Get the products array from the response
+            const productContainer = document.getElementById("container"); // Get the container element
+
+            products.forEach((product) => {
+              // Create a product card for each product
+              const productCard = `
+                <div class="product">
+                    <div class="img-wrap">
+                        <img src="${product.thumbnail}" alt="" class="img" />
+                    </div>
+                    <h3 class="title">${product.title}</h3>
+                    <h4 class="price">Price: ${Math.floor(
+                      product.price * 20
+                    )}₹</h4>
+                    <p class="desc">${product.description}</p>
+                </div>
+              `;
+
+              // Append the product card to the container
+              productContainer.innerHTML += productCard;
+            });
+          });
+      }
+
+      // Call the fetchData function to load the products when the page loads
+      fetchData();
+    </script>
+  </body>
+</html> -->

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selecting Elements</title>
+  </head>
+  <body>
+    <h1 id="header">Hello</h1>
+    <h2 class="item">Fruit</h2>
+    <h2 class="item">Tv</h2>
+    <h2 class="item">Mobile</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem,
+      cumque. Accusantium iure porro nobis. Obcaecati voluptatem dolorum
+      adipisci amet soluta sunt, doloremque consequuntur impedit, placeat
+      commodi animi quia harum hic!
+    </p>
+
+    <script>
+      // Selecting Elements
+
+      // Selecting an element by ID
+      let header = document.getElementById("header").innerText;
+      console.log("Id Selector :", header);
+
+      // Selecting elements by class name
+      let items = document.getElementsByClassName("item");
+      //   for (let i = 0; i < items.length; i++) {
+      //     console.log(items[i].innerText);
+      //   }
+      Array.from(items).forEach((element) => {
+        console.log(element.innerText);
+      });
+
+      // Selecting elements by tag name
+      let paragraphs = document.getElementsByTagName("p");
+      Array.from(paragraphs).forEach((element) => {
+        console.log(element.innerText);
+      });
+      // Selecting a single element with a CSS selector
+      let firstItem = document.querySelector(".item").innerHTML;
+      console.log("First Item :", firstItem);
+      // Selecting multiple elements with a CSS selector
+      let allItems = document.querySelectorAll(".item");
+      allItems.forEach((element) => console.log(element.innerText));
+    </script>
+  </body>
+</html>

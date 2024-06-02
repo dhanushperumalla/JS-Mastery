@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Handling</title>
+  </head>
+  <body>
+    <button id="myButton" onclick="changeText()">ClickMe..!</button>
+    <script>
+      let button = document.getElementById("myButton");
+
+      // Adding an event listener
+      button.addEventListener("click", function () {
+        button.innerText = "Clicked";
+        button.style.backgroundColor = "Green";
+      });
+      button.addEventListener("mouseover", function () {
+        button.style.backgroundColor = "Blue";
+        console.log("Hovering on me");
+      });
+      button.addEventListener("mouseout", function () {
+        button.style.backgroundColor = "Red";
+        console.log("Hovering on me");
+      });
+
+      // Handling event object
+      button.addEventListener("click", function (event) {
+        console.log("Clicked element:", event.target);
+      });
+      function changeText() {
+        // button.innerText = "Clicked";
+      }
+    </script>
+  </body>
+</html>

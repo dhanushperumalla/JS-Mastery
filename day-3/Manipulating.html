@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulating Elements</title>
+  </head>
+  <body>
+    <h1 id="header">This is Header</h1>
+    <h1 id="header1">This is Header</h1>
+
+    <script>
+      let header = document.getElementById("header");
+      let header1 = document.getElementById("header1");
+
+      // Changing content
+      header.innerHTML = "<ol><li>New Header Text</li></ol> : innerHTML";
+      header1.textContent = "<ol><li>New Header Text</li></ol> : TextContent";
+
+      // Changing attributes
+      header.setAttribute("class", "new-class");
+      let className = header.getAttribute("class");
+      console.log("Header ClassName :", className);
+      // Changing styles
+      header.style.color = "blue";
+      header.style.fontSize = "2em";
+    </script>
+  </body>
+</html>
